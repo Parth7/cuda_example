@@ -50,7 +50,7 @@ int main() {
     std::cout << "vector_add_cpu: " << std::chrono::duration_cast<std::chrono::nanoseconds>(cpu_end - cpu_start).count() << " nanoseconds.\n";
 
     auto gpu_start = Clock::now();
-    vector_add_gpu <<<1, ITER>>> (gpu_a, gpu_b, gpu_c, ITER);
+    vector_add_gpu <<<1,ITER>>> (gpu_a, gpu_b, gpu_c, ITER);
     cudaDeviceSynchronize();
     auto gpu_end = Clock::now();
     std::cout << "vector_add_gpu: " << std::chrono::duration_cast<std::chrono::nanoseconds>(gpu_end - gpu_start).count()<< " nanoseconds.\n";
